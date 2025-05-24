@@ -1,7 +1,5 @@
-'use client';
-
 import React, { useState } from 'react';
-import Link from 'next/link';
+import { Link } from 'react-router-dom';
 import { FaFacebook, FaInstagram } from 'react-icons/fa';
 import { Mail, MapPin, Phone, Clock } from 'lucide-react';
 import { RiThreadsLine } from 'react-icons/ri';
@@ -124,9 +122,9 @@ const Footer: React.FC = () => {
             <h3 className="text-gray-900 font-semibold mb-4">Bantuan</h3>
             <ul className="space-y-3">
               <li><button onClick={() => scrollToSection('faq')} className="hover:text-gray-900 transition-colors">FAQ</button></li>
-              <li><Link href="/privacy-policy" className="hover:text-gray-900 transition-colors">Kebijakan Privasi</Link></li>
-              <li><Link href="/terms-and-conditions" className="hover:text-gray-900 transition-colors">Syarat & Ketentuan</Link></li>
-              <li><Link href="/contact" className="hover:text-gray-900 transition-colors">Kontak Kami</Link></li>
+              <li><Link to="/privacy-policy" className="hover:text-gray-900 transition-colors">Kebijakan Privasi</Link></li>
+              <li><Link to="/terms-and-conditions" className="hover:text-gray-900 transition-colors">Syarat & Ketentuan</Link></li>
+              <li><Link to="/contact" className="hover:text-gray-900 transition-colors">Kontak Kami</Link></li>
             </ul>
           </div>
 

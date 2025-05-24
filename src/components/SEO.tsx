@@ -1,7 +1,5 @@
-'use client';
-
 import React from 'react';
-import { NextSeo } from 'next-seo';
+import { Helmet } from 'react-helmet-async';
 import { getHotelSchema, getOrganizationSchema, getLocalBusinessSchema, getWebsiteSchema } from './SchemaMarkup';
 
 interface SEOProps {
@@ -35,51 +33,38 @@ const SEO: React.FC<SEOProps> = ({
   ];
   
   return (
-    <NextSeo
-      title={fullTitle}
-      description={description}
-      canonical={canonical}
-      openGraph={{
-        title: fullTitle,
-        description,
-        type,
-        url: canonical,
-        images: [{ url: image }],
-        siteName: name,
-        locale: 'id_ID',
-      }}
-      twitter={{
-        cardType: 'summary_large_image',
-      }}
-      additionalMetaTags={[
-        {
-          name: 'keywords',
-          content: 'website hotel murah, jasa pembuatan website hotel, website penginapan, ai customer service hotel, landing page hotel, branding hotel, website hotel profesional, digital marketing hotel, hotel karanganyar, penginapan karanganyar, hotel jawa tengah'
-        },
-        {
-          name: 'author',
-          content: 'Citra Digital Hotel'
-        },
-        {
-          name: 'language',
-          content: 'id'
-        },
-        {
-          name: 'geo.region',
-          content: 'ID-JT'
-        },
-        {
-          name: 'geo.placename',
-          content: 'Karanganyar'
-        }
-      ]}
-      additionalLinkTags={[
-        {
-          rel: 'icon',
-          href: '/favicon.ico'
-        }
-      ]}
-    />
+    <Helmet>
+      <title>{fullTitle}</title>
+      <meta name="description" content={description} />
+      <link rel="canonical" href={canonical} />
+      
+      {/* OpenGraph tags */}
+      <meta property="og:title" content={fullTitle} />
+      <meta property="og:description" content={description} />
+      <meta property="og:type" content={type} />
+      <meta property="og:url" content={canonical} />
+      <meta property="og:image" content={image} />
+      <meta property="og:site_name" content={name} />
+      <meta property="og:locale" content="id_ID" />
+      
+      {/* Twitter tags */}
+      <meta name="twitter:card" content="summary_large_image" />
+      
+      {/* Additional meta tags */}
+      <meta name="keywords" content="website hotel murah, jasa pembuatan website hotel, website penginapan, ai customer service hotel, landing page hotel, branding hotel, website hotel profesional, digital marketing hotel, hotel karanganyar, penginapan karanganyar, hotel jawa tengah" />
+      <meta name="author" content="Citra Digital Hotel" />
+      <meta name="language" content="id" />
+      <meta name="geo.region" content="ID-JT" />
+      <meta name="geo.placename" content="Karanganyar" />
+      
+      {/* Favicon */}
+      <link rel="icon" href="/favicon.ico" />
+      
+      {/* Schema markup */}
+      <script type="application/ld+json">
+        {JSON.stringify(schemas)}
+      </script>
+    </Helmet>
   );
 };
 
