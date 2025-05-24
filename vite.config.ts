@@ -1,21 +1,12 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { createHtmlPlugin } from 'vite-plugin-html';
-import { resolve } from 'path';
-import { Prerenderer } from '@prerenderer/prerenderer';
-import Puppeteer from 'puppeteer';
-
-const routes = [
-  '/',
-  '/ai-customer-service',
-  '/contact',
-  '/privacy-policy',
-  '/terms-and-conditions'
-];
+import ssr from 'vite-plugin-ssr/plugin';
 
 export default defineConfig({
   plugins: [
     react(),
+    ssr(),
     createHtmlPlugin({
       minify: true,
       inject: {
@@ -41,8 +32,5 @@ export default defineConfig({
         }
       }
     }
-  },
-  optimizeDeps: {
-    include: ['react', 'react-dom', 'react-router-dom']
   }
 });
