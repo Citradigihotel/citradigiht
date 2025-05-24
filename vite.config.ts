@@ -1,21 +1,11 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import { plugin as htmlPlugin } from 'vite-plugin-html';
 import ssr from 'vite-plugin-ssr/plugin';
 
 export default defineConfig({
   plugins: [
     react(),
-    ssr(),
-    htmlPlugin({
-      minify: true,
-      inject: {
-        data: {
-          title: 'Citra Digital Hotel',
-          description: 'Solusi website profesional untuk penginapan Anda dengan harga terjangkau. Dilengkapi AI Customer Service 24/7 dan fitur booking WhatsApp.'
-        }
-      }
-    })
+    ssr()
   ],
   server: {
     port: 3000,
