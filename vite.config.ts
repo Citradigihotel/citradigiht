@@ -10,5 +10,6 @@ export default defineConfig({
     rollupOptions: {
       external: ['react-helmet-async']
     }
-  }
+  },
+  base: '/'
 });
