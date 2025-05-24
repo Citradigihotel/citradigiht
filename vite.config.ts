@@ -1,13 +1,13 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
-import { createHtmlPlugin } from 'vite-plugin-html';
+import { plugin as htmlPlugin } from 'vite-plugin-html';
 import ssr from 'vite-plugin-ssr/plugin';
 
 export default defineConfig({
   plugins: [
     react(),
     ssr(),
-    createHtmlPlugin({
+    htmlPlugin({
       minify: true,
       inject: {
         data: {
