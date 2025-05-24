@@ -3,12 +3,12 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  optimizeDeps: {
-    exclude: ['lucide-react']
+  server: {
+    port: 3000,
+    open: true
   },
   build: {
-    rollupOptions: {
-      external: ['react-helmet-async']
-    }
+    outDir: 'dist',
+    sourcemap: true
   }
 });
