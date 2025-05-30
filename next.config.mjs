@@ -1,6 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Configuration is kept minimal to avoid conflicts
-}
+  reactStrictMode: true,
+  swcMinify: true,
+  images: {
+    domains: ['images.pexels.com', 'ik.imagekit.io'],
+  }
+};
 
 export default nextConfig;
